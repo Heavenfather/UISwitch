@@ -144,6 +144,17 @@ namespace Toolkit
             return true;
         }
 
+        public static bool DrawObject(ref Object obj, System.Type type)
+        {
+            Object ob = EditorGUILayout.ObjectField(obj, type, true);
+            if (ob == obj) return false;
+            RegisterUndo<Object>((ref Object o) =>
+            {
+                o= ob ;
+            }, ref obj);
+            return true;
+        }
+
 #endif
     }
 }
