@@ -27,6 +27,8 @@ namespace Toolkit
         Gray,
         Color,
         Rotation,
+        Image,
+        RawImage,
 
         Last,
     }
@@ -51,6 +53,8 @@ namespace Toolkit
             _stateBases[(int)SwitchTypeEnum.Gray] = new UISwitchGray();
             _stateBases[(int)SwitchTypeEnum.Color] = new UISwitchColor();
             _stateBases[(int)SwitchTypeEnum.Rotation] = new UISwitchRotation();
+            _stateBases[(int)SwitchTypeEnum.Image] = new UISwitchImage();
+            _stateBases[(int)SwitchTypeEnum.RawImage] = new UISwitchRawImage();
 
 #if UNITY_EDITOR
             TypeNames = new string[_stateBases.Length];
@@ -80,7 +84,7 @@ namespace Toolkit
     [System.SerializableAttribute]
     public class UISwitchData
     {
-        public bool isBool = true;
+        public bool isBool = false;
 
         public Vector3 v3Filed = Vector3.zero;
 
